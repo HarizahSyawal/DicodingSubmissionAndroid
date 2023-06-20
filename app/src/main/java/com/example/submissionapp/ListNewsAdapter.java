@@ -31,14 +31,15 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListNewsAdapter.ListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
             News news = listNews.get(position);
             Glide.with(holder.itemView.getContext())
                     .load(news.getPhoto())
                     .apply(new RequestOptions().override(105, 80))
                     .into(holder.imgPhoto);
-            holder.tvName.setText(news.getTitle());
+            holder.tvName.setText(news.getName());
             holder.tvDate.setText(news.getDate());
+           // holder.tvDetail.setText(news.getDetail());
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
         return listNews.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName;
         TextView tvDetail;
@@ -56,6 +57,7 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
             imgPhoto = itemview.findViewById(R.id.img_item_news);
             tvName = itemview.findViewById(R.id.tv_item_name);
             tvDate = itemview.findViewById(R.id.tv_item_date);
+//            tvDetail = itemview.findViewById(R.id.);
         }
     }
 }

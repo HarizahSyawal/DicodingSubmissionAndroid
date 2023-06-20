@@ -1,17 +1,17 @@
 package com.example.submissionapp.model;
 
 public class News {
-    private String title;
+    private String name;
     private String detail;
     private String date;
     private int photo;
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDetail() {

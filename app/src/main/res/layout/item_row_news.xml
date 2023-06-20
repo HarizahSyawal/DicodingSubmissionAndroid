@@ -23,13 +23,13 @@
         android:layout_centerVertical='true'
         android:layout_toEndOf="@+id/img_item_news"
         android:layout_toRightOf="@+id/img_item_news"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_item_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="5dp"
             android:text="Date"
@@ -38,10 +38,10 @@
 
         <TextView
             android:id="@+id/tv_item_name"
-            android:layout_width="180dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Easy-to-Win Trade War Costs Taxpayers Money"
             android:layout_marginTop="-7dp"
+            android:text="Easy-to-Win Trade War Costs Taxpayers Money"
             android:textAlignment="textStart"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textColor="#000000"

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public class NewsData {
     private static String [] newsTitle = {
-            "Kaisar Jepang Kunjungi RI untuk Pertama Kali, Mau ke Jakarta-Borobudur",
-            "Putin Bakal ke Negara NATO, Perang Rusia-Ukraina Tamat?",
-            "Bill Gates Bertemu Xi Jinping, Teknologi AS Boleh Masuk China",
-            "Putin Beri Pesan Khusus untuk Para Taipan Rusia, Seperti Apa?",
-            "Hotman Paris Gelontorkan Dana Rp15 Miliar untuk Gelar Pertandingan Tinju",
+            "Kaisar Jepang Kunjungi RI",
+            "Putin Bakal ke Negara NATO",
+            "Bill Gates Bertemu Xi Jinping",
+            "Putin Beri Pesan Khusus untuk Para Taipan Rusia",
+            "Hotman Paris Gelontorkan Dana Rp15 Miliar",
             "Ratusan Pegawai Twitter Diusir dari Kantor, Masalah Uang",
             "Porak-Poranda, Potret Kota-Kota AS Diterjang Tornado Dahsyat",
             "Harga Gula Dunia Menggila! India Biang Kerok, RI Bahaya",
@@ -51,9 +51,6 @@ public class NewsData {
             "Minggu, 13 Mar 2021",
             "Kamis, 12 Feb 2022",
     };
-
-
-
     private static int [] newsImage = {
             R.drawable.news1,
             R.drawable.news2,
@@ -72,9 +69,10 @@ public class NewsData {
         for (int position = 0; position < newsTitle.length; position++){
             News news   = new News();
             news.setDate(newsDate[position]);
-            news.setTitle(newsTitle[position]);
+            news.setName(newsTitle[position]);
             news.setDetail(newsDetail[position]);
             news.setPhoto(newsImage[position]);
+            list.add(news);
         }
         return list;
     }
