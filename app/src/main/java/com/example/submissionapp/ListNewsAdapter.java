@@ -23,6 +23,13 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
         this.listNews = list;
     }
 
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
+
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,12 +46,21 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
                     .into(holder.imgPhoto);
             holder.tvName.setText(news.getName());
             holder.tvDate.setText(news.getDate());
-           // holder.tvDetail.setText(news.getDetail());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickCallback.onItemClicked(listNews.get(holder.getAbsoluteAdapterPosition()));
+                }
+            });
     }
 
     @Override
     public int getItemCount() {
         return listNews.size();
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(News data);
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {

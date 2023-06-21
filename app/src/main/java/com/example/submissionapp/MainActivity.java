@@ -122,5 +122,14 @@ public class MainActivity extends AppCompatActivity {
         rvNews.setLayoutManager(new LinearLayoutManager(this));
         ListNewsAdapter listNewsAdapter = new ListNewsAdapter(list);
         rvNews.setAdapter(listNewsAdapter);
+
+        listNewsAdapter.setOnItemClickCallback(new ListNewsAdapter.OnItemClickCallback(){
+            @Override
+            public void onItemClicked(News news){
+                Intent moveIntent = new Intent(MainActivity.this, DetailNewsActivity.class);
+                moveIntent.putExtra(DetailNewsActivity.ITEM_EXTRA, news);
+                startActivity(moveIntent);
+            }
+        });
     }
 }
