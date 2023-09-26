@@ -16,7 +16,7 @@
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".DetailNewsActivity"
+            android:name=".DetailFoodActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
         <activity

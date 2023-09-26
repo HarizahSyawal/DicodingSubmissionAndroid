@@ -18,14 +18,14 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("About");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
 
-        ImageView profileImage = findViewById(R.id.profileImage);
-        TextView nameTextView = findViewById(R.id.nameTextView);
-        TextView emailTextView = findViewById(R.id.emailTextView);
+        ImageView profileImage = findViewById(R.id.ivPicture);
+        TextView nameTextView = findViewById(R.id.tvName);
+        TextView emailTextView = findViewById(R.id.tvEmail);
 
         // Set the profile image, name, and email
-        profileImage.setImageResource(R.drawable.dipda);
-        nameTextView.setText("Dipda Turfaqintar Azwaj Marzuki");
-        emailTextView.setText("dipdatzanel3@gmail.com");
+        profileImage.setImageResource(R.drawable.harizah);
+        nameTextView.setText("Harizah Syawal");
+        emailTextView.setText("harisa1701@gmail.com");
 
     }
 }

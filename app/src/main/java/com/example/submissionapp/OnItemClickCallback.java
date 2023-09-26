@@ -1,7 +1,7 @@
 package com.example.submissionapp;
 
-import com.example.submissionapp.model.News;
+import com.example.submissionapp.model.Foods;
 
 public interface OnItemClickCallback {
-    void onItemClicked(News news);
+    void onItemClicked(Foods foods);
 }

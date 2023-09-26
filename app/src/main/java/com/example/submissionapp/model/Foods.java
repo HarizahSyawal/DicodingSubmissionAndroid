@@ -5,32 +5,33 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class News implements Parcelable {
+public class Foods implements Parcelable {
     private String name;
     private String detail;
-    private String date;
+    private String price;
     private int photo;
+    private float rating = 0f;
 
-    public News(){
+    public Foods(){
 
     }
 
-    protected News(Parcel in) {
+    protected Foods(Parcel in) {
         name = in.readString();
         detail = in.readString();
-        date = in.readString();
+        price = in.readString();
         photo = in.readInt();
     }
 
-    public static final Creator<News> CREATOR = new Creator<News>() {
+    public static final Creator<Foods> CREATOR = new Creator<Foods>() {
         @Override
-        public News createFromParcel(Parcel in) {
-            return new News(in);
+        public Foods createFromParcel(Parcel in) {
+            return new Foods(in);
         }
 
         @Override
-        public News[] newArray(int size) {
-            return new News[size];
+        public Foods[] newArray(int size) {
+            return new Foods[size];
         }
     };
 
@@ -50,12 +51,12 @@ public class News implements Parcelable {
         this.detail = detail;
     }
 
-    public String getDate() {
-        return date;
+    public String getPrice() {
+        return price;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public int getPhoto() {
@@ -75,7 +76,16 @@ public class News implements Parcelable {
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(detail);
-        parcel.writeString(date);
+        parcel.writeString(price);
         parcel.writeInt(photo);
+        parcel.writeFloat(rating);
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

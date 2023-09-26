@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,16 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.submissionapp.model.News;
+import com.example.submissionapp.model.Foods;
 
 import java.util.ArrayList;
 
-public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListViewHolder>{
+public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>{
 
-    private ArrayList<News>listNews;
+    private ArrayList<Foods>listFoods;
 
-    public ListNewsAdapter(ArrayList<News> list){
-        this.listNews = list;
+    public ListFoodAdapter(ArrayList<Foods> list){
+        this.listFoods = list;
     }
 
     private OnItemClickCallback onItemClickCallback;
@@ -33,47 +34,50 @@ public class ListNewsAdapter extends RecyclerView.Adapter<ListNewsAdapter.ListVi
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_news, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_foods, parent, false);
         return new ListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-            News news = listNews.get(position);
+            Foods foods = listFoods.get(position);
             Glide.with(holder.itemView.getContext())
-                    .load(news.getPhoto())
+                    .load(foods.getPhoto())
                     .apply(new RequestOptions().override(105, 80))
                     .into(holder.imgPhoto);
-            holder.tvName.setText(news.getName());
-            holder.tvDate.setText(news.getDate());
+            holder.tvName.setText(foods.getName());
+            holder.tvPrice.setText(foods.getPrice());
+            holder.rbFood.setRating(foods.getRating());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClickCallback.onItemClicked(listNews.get(holder.getAbsoluteAdapterPosition()));
+                    onItemClickCallback.onItemClicked(listFoods.get(holder.getAbsoluteAdapterPosition()));
                 }
             });
     }
 
     @Override
     public int getItemCount() {
-        return listNews.size();
+        return listFoods.size();
     }
 
     public interface OnItemClickCallback {
-        void onItemClicked(News data);
+        void onItemClicked(Foods data);
     }
 
     class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName;
         TextView tvDetail;
-        TextView tvDate;
+        TextView tvPrice;
+        RatingBar rbFood;
         ListViewHolder(View itemview){
             super(itemview);
-            imgPhoto = itemview.findViewById(R.id.img_item_news);
-            tvName = itemview.findViewById(R.id.tv_item_name);
-            tvDate = itemview.findViewById(R.id.tv_item_date);
+            imgPhoto = itemview.findViewById(R.id.ivPoster);
+            tvName = itemview.findViewById(R.id.tvTitle);
+            tvPrice = itemview.findViewById(R.id.tvPrice);
 //            tvDetail = itemview.findViewById(R.id.);
+            rbFood = itemview.findViewById(R.id.rbFood);
         }
     }
 }

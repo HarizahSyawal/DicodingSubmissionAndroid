@@ -12,8 +12,8 @@ import android.os.Looper;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.example.submissionapp.data.NewsData;
-import com.example.submissionapp.model.News;
+import com.example.submissionapp.data.FoodsData;
+import com.example.submissionapp.model.Foods;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rvNews;
-    private ArrayList<News> list = new ArrayList<>();
+    private ArrayList<Foods> list = new ArrayList<>();
 
     private ViewPager2 viewPager;
     private ImageSliderAdapter imageSliderAdapter;
@@ -40,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton imageButton = findViewById(R.id.profile);
 
-        rvNews = findViewById(R.id.rv_news);
+        rvNews = findViewById(R.id.rv_foods);
         rvNews.setHasFixedSize(true);
 
-        list.addAll(NewsData.getListData());
+        list.addAll(FoodsData.getListData());
         showRecyclerList();
 
         viewPager = findViewById(R.id.viewPager);
@@ -80,12 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Integer> getImageList() {
         List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.news1);
-        images.add(R.drawable.news2);
-        images.add(R.drawable.news3);
-        images.add(R.drawable.news4);
-        images.add(R.drawable.news5);
-        images.add(R.drawable.news6);
+        images.add(R.drawable.food1);
+        images.add(R.drawable.food2);
+        images.add(R.drawable.food3);
+        images.add(R.drawable.food4);
+        images.add(R.drawable.food5);
+        images.add(R.drawable.food6);
         return images;
     }
 
@@ -120,14 +120,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerList() {
         rvNews.setLayoutManager(new LinearLayoutManager(this));
-        ListNewsAdapter listNewsAdapter = new ListNewsAdapter(list);
-        rvNews.setAdapter(listNewsAdapter);
+        ListFoodAdapter listFoodAdapter = new ListFoodAdapter(list);
+        rvNews.setAdapter(listFoodAdapter);
 
-        listNewsAdapter.setOnItemClickCallback(new ListNewsAdapter.OnItemClickCallback(){
+        listFoodAdapter.setOnItemClickCallback(new ListFoodAdapter.OnItemClickCallback(){
             @Override
-            public void onItemClicked(News news){
-                Intent moveIntent = new Intent(MainActivity.this, DetailNewsActivity.class);
-                moveIntent.putExtra(DetailNewsActivity.ITEM_EXTRA, news);
+            public void onItemClicked(Foods foods){
+                Intent moveIntent = new Intent(MainActivity.this, DetailFoodActivity.class);
+                moveIntent.putExtra(DetailFoodActivity.ITEM_EXTRA, foods);
                 startActivity(moveIntent);
             }
         });

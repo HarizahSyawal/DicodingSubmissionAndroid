@@ -8,32 +8,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.submissionapp.model.News;
+import com.example.submissionapp.model.Foods;
 
-public class DetailNewsActivity extends AppCompatActivity {
+public class DetailFoodActivity extends AppCompatActivity {
     public static final String ITEM_EXTRA = "item_extra";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_news);
+        setContentView(R.layout.activity_detail_food);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
 
-        ImageView imgNews = findViewById(R.id.imgNews);
-        TextView tvNewsName = findViewById(R.id.tvNewsName);
-        TextView tvNewsDetail = findViewById(R.id.tvNewsDetail);
+        ImageView imgFood = findViewById(R.id.ivPoster);
+        TextView tvFoodName = findViewById(R.id.tvTitle);
+        TextView tvFoodDesc = findViewById(R.id.tvDesc);
+        TextView tvTotal = findViewById(R.id.tvTotal);
 
-        News news = getIntent().getParcelableExtra(ITEM_EXTRA);
-        if(news != null){
+        Foods foods = getIntent().getParcelableExtra(ITEM_EXTRA);
+        if(foods != null){
             Glide.with(this)
-                    .load(news.getPhoto())
-                    .into(imgNews);
-            tvNewsName.setText(news.getName());
-            tvNewsDetail.setText(news.getDetail());
+                    .load(foods.getPhoto())
+                    .into(imgFood);
+            tvFoodName.setText(foods.getName());
+            tvFoodDesc.setText(foods.getDetail());
+            tvTotal.setText(foods.getPrice());
         }
         if(getSupportActionBar() != null){
-            getSupportActionBar().setTitle("Detail News");
+            getSupportActionBar().setTitle("Detail Food");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
