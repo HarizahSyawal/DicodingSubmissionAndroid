@@ -22,7 +22,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView rvNews;
+    private RecyclerView rvFoods;
     private ArrayList<Foods> list = new ArrayList<>();
 
     private ViewPager2 viewPager;
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton imageButton = findViewById(R.id.profile);
 
-        rvNews = findViewById(R.id.rv_foods);
-        rvNews.setHasFixedSize(true);
+        rvFoods = findViewById(R.id.rv_foods);
+        rvFoods.setHasFixedSize(true);
 
         list.addAll(FoodsData.getListData());
         showRecyclerList();
@@ -119,9 +119,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showRecyclerList() {
-        rvNews.setLayoutManager(new LinearLayoutManager(this));
+        rvFoods.setLayoutManager(new LinearLayoutManager(this));
         ListFoodAdapter listFoodAdapter = new ListFoodAdapter(list);
-        rvNews.setAdapter(listFoodAdapter);
+        rvFoods.setAdapter(listFoodAdapter);
 
         listFoodAdapter.setOnItemClickCallback(new ListFoodAdapter.OnItemClickCallback(){
             @Override

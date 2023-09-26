@@ -68,7 +68,6 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.ListVi
     class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName;
-        TextView tvDetail;
         TextView tvPrice;
         RatingBar rbFood;
         ListViewHolder(View itemview){
@@ -76,7 +75,6 @@ public class ListFoodAdapter extends RecyclerView.Adapter<ListFoodAdapter.ListVi
             imgPhoto = itemview.findViewById(R.id.ivPoster);
             tvName = itemview.findViewById(R.id.tvTitle);
             tvPrice = itemview.findViewById(R.id.tvPrice);
-//            tvDetail = itemview.findViewById(R.id.);
             rbFood = itemview.findViewById(R.id.rbFood);
         }
     }

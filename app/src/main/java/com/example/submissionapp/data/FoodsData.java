@@ -4,6 +4,7 @@ import com.example.submissionapp.R;
 import com.example.submissionapp.model.Foods;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FoodsData {
     private static String [] foodTitle = {
@@ -62,6 +63,22 @@ public class FoodsData {
             R.drawable.food10,
     };
 
+    private static String [] foodIngredient = {
+            "Daging sapi, dan rempah yang khas\n",
+            "Pisang, dan topping yang manis\n",
+            "Beras ketan, abon atau serundeng dan daun pisang\n",
+            "Iga sapi, bumbu kacang dan kuah sup kaldu yang khas\n",
+            "Sagu, kacang, sayuran dan ikan\n",
+            "Beras dan daun pisang.\n",
+            "Ketan dan gula merah\n",
+            "Wortel, tauge, soun atau bihun dan telur\n",
+            "Pisang, pandan, santan dan sirup\n",
+            "Pisang yang dimatangkan dan daun pisang"
+
+
+
+    };
+
     private static float [] foodRating = {
             5f,
             4f,
@@ -72,7 +89,7 @@ public class FoodsData {
             4f,
             3f,
             4f,
-            5f
+            5f,
     };
 
     public static ArrayList<Foods> getListData(){
@@ -83,6 +100,7 @@ public class FoodsData {
             foods.setName(foodTitle[position]);
             foods.setDetail(foodDetail[position]);
             foods.setPhoto(foodImage[position]);
+            foods.setIngredient(foodIngredient[position]);
             foods.setRating(foodRating[position]);
             list.add(foods);
         }

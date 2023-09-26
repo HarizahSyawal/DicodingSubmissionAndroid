@@ -10,6 +10,7 @@ public class Foods implements Parcelable {
     private String detail;
     private String price;
     private int photo;
+    private String ingredient;
     private float rating = 0f;
 
     public Foods(){
@@ -21,6 +22,8 @@ public class Foods implements Parcelable {
         detail = in.readString();
         price = in.readString();
         photo = in.readInt();
+        ingredient = in.readString();
+        rating = in.readFloat();
     }
 
     public static final Creator<Foods> CREATOR = new Creator<Foods>() {
@@ -67,6 +70,21 @@ public class Foods implements Parcelable {
         this.photo = photo;
     }
 
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
+    }
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -78,14 +96,8 @@ public class Foods implements Parcelable {
         parcel.writeString(detail);
         parcel.writeString(price);
         parcel.writeInt(photo);
+        parcel.writeString(ingredient);
         parcel.writeFloat(rating);
     }
 
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
-    }
 }
